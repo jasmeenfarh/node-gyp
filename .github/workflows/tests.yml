@@ -13,14 +13,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: pip install --user ruff
-    - run: ruff --format=github --select="E,F,PLC,PLE,UP,W,YTT" --ignore="PLC1901,S101,UP031" --target-version=py37 .
+    - run: ruff --format=github --select="ASYNC,E,F,PLC,PLE,UP,W,YTT"
+                --ignore="PLC1901,S101,UP031" --target-version=py38 .
   Tests:
     strategy:
       fail-fast: false
       max-parallel: 15
       matrix:
         node: [16.x, 18.x, 20.x]
-        python: ["3.8", "3.11"]
+        python: ["3.8", "3.11", "3.12-dev"]
         os: [macos-latest, ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
