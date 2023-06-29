@@ -6,7 +6,8 @@
 `node-gyp` is a cross-platform command-line tool written in Node.js for
 compiling native addon modules for Node.js. It contains a vendored copy of the
 [gyp-next](https://github.com/nodejs/gyp-next) project that was previously used
-by the Chromium team, extended to support the development of Node.js native addons.
+by the Chromium team and extended to support the development of Node.js native
+addons.
 
 Note that `node-gyp` is _not_ used to build Node.js itself.
 
@@ -31,7 +32,7 @@ Depending on your operating system, you will need to install:
 
 ### On Unix
 
-   * Python v3.7, v3.8, v3.9, or v3.10
+   * [A supported version of Python](https://devguide.python.org/versions/)
    * `make`
    * A proper C/C++ compiler toolchain, like [GCC](https://gcc.gnu.org)
 
@@ -39,7 +40,7 @@ Depending on your operating system, you will need to install:
 
 **ATTENTION**: If your Mac has been _upgraded_ to macOS Catalina (10.15) or higher, please read [macOS_Catalina.md](macOS_Catalina.md).
 
-   * Python v3.7, v3.8, v3.9, or v3.10
+   * [A supported version of Python](https://devguide.python.org/versions/)
    * `XCode Command Line Tools` which will install `clang`, `clang++`, and `make`.
      * Install the `XCode Command Line Tools` standalone by running `xcode-select --install`. -- OR --
      * Alternatively, if you already have the [full Xcode installed](https://developer.apple.com/xcode/download/), you can install the Command Line Tools under the menu `Xcode -> Open Developer Tool -> More Developer Tools...`.
@@ -47,7 +48,7 @@ Depending on your operating system, you will need to install:
 
 ### On Windows
 
-Install the current version of Python from the [Microsoft Store package](https://www.microsoft.com/en-us/p/python-310/9pjpw5ldxlz5).
+Install the current [version of Python](https://devguide.python.org/versions/) from the [Microsoft Store package](https://www.microsoft.com/en-us/p/python-310/9pjpw5ldxlz5).
 
 Install tools and configuration manually:
    * Install Visual C++ Build Environment: [Visual Studio Build Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools)
@@ -62,9 +63,7 @@ Install tools and configuration manually:
 
 ### Configuring Python Dependency
 
-`node-gyp` requires that you have installed a compatible version of Python, one of: v3.7, v3.8,
-v3.9, or v3.10. If you have multiple Python versions installed, you can identify which Python
-version `node-gyp` should use in one of the following ways:
+`node-gyp` requires that you have installed a [supported version of Python](https://devguide.python.org/versions/). If you have multiple versions of Python installed, you can identify which version `node-gyp` should use in one of the following ways:
 
 1. by setting the `--python` command-line option, e.g.:
 
@@ -81,16 +80,16 @@ npm config set python /path/to/executable/python
 ```
 
 3. If the `PYTHON` environment variable is set to the path of a Python executable,
-then that version will be used, if it is a compatible version.
+then that version will be used if it is a supported version.
 
 4. If the `NODE_GYP_FORCE_PYTHON` environment variable is set to the path of a
 Python executable, it will be used instead of any of the other configured or
-builtin Python search paths. If it's not a compatible version, no further
+built-in Python search paths. If it's not a compatible version, no further
 searching will be done.
 
 ### Build for Third Party Node.js Runtimes
 
-When building modules for third party Node.js runtimes like Electron, which have
+When building modules for third-party Node.js runtimes like Electron, which have
 different build configurations from the official Node.js distribution, you
 should use `--dist-url` or `--nodedir` flags to specify the headers of the
 runtime to build for.
@@ -106,7 +105,7 @@ to work around configuration errors.
 
 ## How to Use
 
-To compile your native addon, first go to its root directory:
+To compile your native addon first go to its root directory:
 
 ``` bash
 cd my_node_addon
